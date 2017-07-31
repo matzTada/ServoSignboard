@@ -1,5 +1,9 @@
 # Servo Signboard
 
+## To Do
+
+* 高電流を流す回路が必要かも（Arduino 3個ぐらい戦闘不能になってる気がする)
+
 ## Perfumer
 
 * ペットボトル，サーボ，段ボール，Arduino互換マイコンで蓋開く．
@@ -23,6 +27,10 @@ Program: ServoSerial_Perfume [movie on youtube](https://www.youtube.com/watch?v=
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=IEDP1sG45pI
 " target="_blank"><img src="http://img.youtube.com/vi/IEDP1sG45pI/0.jpg" 
-alt="movie on youtube" width=50% border="10" /></a>  
-Program: ServoSerial_Signboard [movie on youtube](https://www.youtube.com/watch?v=IEDP1sG45pI)  
-
+alt="movie on youtube" width=40% border="10" /></a>
+　
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=KfgPK5Cr0xU
+" target="_blank"><img src="http://img.youtube.com/vi/KfgPK5Cr0xU/0.jpg" 
+alt="movie on youtube" width=40% border="10" /></a>  
+Program: ServoSerial_Signboard  
+[movie on youtube](https://www.youtube.com/watch?v=IEDP1sG45pI) [movie on youtube](https://www.youtube.com/watch?v=KfgPK5Cr0xU)  
