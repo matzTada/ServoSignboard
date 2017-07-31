@@ -19,7 +19,7 @@ class ButtonServo : public Servo {
       servoPin = _servoPin;
       servoVal = 0;
       if (buttonPin >= 0) pinMode(buttonPin, INPUT_PULLUP);
-      attach(servoPin, 800, 1500); // parameters for GWS 2BBMG ref: http://tetsuakibaba.jp/index.php?page=workshop/ServoBasis/main
+      attach(servoPin, 800, 2300); // parameters for GWS 2BBMG ref: http://tetsuakibaba.jp/index.php?page=workshop/ServoBasis/main
     }
     boolean isButtonPushed() {
       if (buttonPin >= 0) if (digitalRead(buttonPin) == LOW) return true;
@@ -53,11 +53,12 @@ void rotateBySerial() { // example command : S1180 means that the servo whose id
         int val = inputStr.substring(2, 5).toInt();
         val = constrain(val, 0, 179);     // scale it to use it with the servo (value between 0 and 180)
         for (int i = 0; i < sizeof(bss) / sizeof(bss[0]); i++) {
-          bss[i].attach(bss[i].servoPin, 800, 1500);
+          bss[i].attach(bss[i].servoPin, 800, 2300);
           bss[i].write(val);                  // sets the servo position according to the scaled value}
           delay(servoDelay);
           bss[i].detach();
         }
+        Serial.println(val);
       } else if (c1 == 'D') {
         int val = inputStr.substring(2, 5).toInt();
         servoDelay = val * 10;     // scale it to use it with the servo (value between 0 and 180)
@@ -67,10 +68,11 @@ void rotateBySerial() { // example command : S1180 means that the servo whose id
         if (0 <= i && i < sizeof(bss) / sizeof(bss[0])) {
           int val = inputStr.substring(2, 5).toInt();
           val = constrain(val, 0, 179);     // scale it to use it with the servo (value between 0 and 180)
-          bss[i].attach(bss[i].servoPin, 800, 1500);
+          bss[i].attach(bss[i].servoPin, 800, 2300);
           bss[i].write(val);                  // sets the servo position according to the scaled value}
           delay(servoDelay);
           bss[i].detach();
+          Serial.println(servoDelay);
         }
       }
     }
@@ -99,7 +101,7 @@ void loop() {
     state = 1 - state;
     int val = (state == 0) ? 0 : 179;
     for (int i = 0; i < sizeof(bss) / sizeof(bss[0]); i++) {
-      bss[i].attach(bss[i].servoPin, 800, 1500);
+      bss[i].attach(bss[i].servoPin, 800, 2300);
       bss[i].write(val);                  // sets the servo position according to the scaled value}
       delay(servoDelay);
       bss[i].detach();
